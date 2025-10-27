@@ -4,7 +4,7 @@ import { Header } from "./components/Header";
 export function Story() {
   return (
     <main>
-      <Header />
+      <Header active="story" />
       <section id="stories-section">
         <div className="container">
           <h2>Vozes que constroem pontes</h2>
