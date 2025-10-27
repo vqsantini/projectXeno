@@ -16,13 +16,13 @@ export function Home() {
 
         <div className="container">
           <section id="definicao" className="content-section">
-            <h3>O que é Xenofobia?</h3>
-            <p>A xenofobia é o preconceito, a aversão ou a discriminação contra pessoas de outras nacionalidades, etnias ou culturas. Manifesta-se através do medo, da desconfiança e do ódio por aquilo que é percebido como "estrangeiro" ou "diferente". É importante lembrar que a xenofobia é crime e viola os Direitos Humanos.</p>
-            <img src="./Xenofobia.svg" alt="Mãos de diferentes etnias unidas" className="content-image"/>
+            <h3 className="h3-type">O que é Xenofobia?</h3>
+            <p >A xenofobia é o preconceito, a aversão ou a discriminação contra pessoas de outras nacionalidades, etnias ou culturas. Manifesta-se através do medo, da desconfiança e do ódio por aquilo que é percebido como "estrangeiro" ou "diferente". É importante lembrar que a xenofobia é crime e viola os Direitos Humanos.</p>
+            <img src="./Xenofobia.svg" alt="Mãos de diferentes etnias unidas" className="content-image w-full"/>
           </section>
 
           <section id="como-ocorre" className="content-section">
-            <h3>Como ela ocorre?</h3>
+            <h3 className="h3-type">Como ela ocorre?</h3>
             <p>A xenofobia pode se manifestar de várias formas, desde as mais sutis até as mais violentas:</p>
             <ul>
               <li><strong>Piadas e estereótipos:</strong> Comentários pejorativos que generalizam e ridicularizam uma nacionalidade ou cultura.</li>
@@ -34,13 +34,13 @@ export function Home() {
           </section>
 
           <section id="resultados-pesquisa" className="content-section">
-            <h3>Resultados da nossa pesquisa</h3>
+            <h3 className="h3-type">Resultados da nossa pesquisa</h3>
             <p>
               Em uma pesquisa recente realizada com <strong>50 participantes</strong> para este projeto, obtivemos insights valiosos sobre a percepção da xenofobia. Os resultados mostram que a maioria dos entrevistados <strong>(42%) já presenciou um ato xenofóbico</strong>. A influência da mídia é vista como <strong>predominantemente negativa por mais da metade dos participantes (52%)</strong>, e o "Medo" foi apontado como a principal causa do preconceito. Um dado alarmante é que a grande maioria <strong>(72%) se sente pouco ou parcialmente informada sobre as leis</strong> que protegem imigrantes, revelando uma importante lacuna de conhecimento que precisa ser preenchida.
             </p>
           </section>
           <section id="como-prevenir" className="content-section">
-            <h3>Como podemos prevenir e combater?</h3>
+            <h3 className="h3-type">Como podemos prevenir e combater?</h3>
             <p>A luta contra a xenofobia é um dever de todos. Algumas atitudes fazem a diferença:</p>
             <ol>
               <li><strong>Educação e Informação:</strong> Busque aprender sobre outras culturas. O conhecimento é a principal ferramenta contra o preconceito.</li>
