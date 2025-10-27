@@ -30,18 +30,18 @@ nav ul {
   padding: 0;
 }
 
-nav a {
+nav .button-header {
   color: white;
   text-decoration: none;
   font-weight: bold;
 }
 
-nav a.active {
+nav .button-header.active {
   text-decoration: underline;
 }
 
 #banner {
-  background: url('img/banner.svg') no-repeat center center/cover;
+  background: url('./Banner.svg') no-repeat center center/cover;
   padding: 50px 0;
   text-align: center;
 }
