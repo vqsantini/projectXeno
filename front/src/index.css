@@ -696,3 +696,7 @@ main section, main > .container {
     font-size: 2rem;
 }
 
+.h2-type {
+    font-weight: 700;
+    font-size: 1.75rem;
+}
