@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 
 app.post("/pesquisa", async (req, res) => {
   try {
-    const {p1, p2, p3, p4, p5, p6, p7, p8, p9, p10 } = req.body;
+    const { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10 } = req.body;
 
     const newSearch = new Pesquisa({
       p1: p1 || "",
@@ -41,6 +41,57 @@ app.post("/pesquisa", async (req, res) => {
       message: "Erro interno ao salvar pesquisa",
       error: error.message,
     });
+  }
+});
+
+app.get("/pesquisa", async (req, res) => {
+  try {
+    const pesquisas = await Pesquisa.find();
+    const estatisticas = {};
+
+    pesquisas.forEach((doc) => {
+      Object.entries(doc.toObject()).forEach(([key, value]) => {
+        if (key.startsWith("p")) {
+          if (!estatisticas[key]) estatisticas[key] = {};
+          if (!estatisticas[key][value]) estatisticas[key][value] = 0;
+          estatisticas[key][value]++;
+        }
+      });
+    });
+
+    const perguntas = [
+      "Você já presenciou um ato de xenofobia (pessoalmente ou online)?",
+      "Em sua opinião, qual é a principal causa da xenofobia?",
+      "Você acredita que a mídia influencia a percepção sobre imigrantes?",
+      "Que medida as escolas deveriam tomar para educar contra a xenofobia?",
+      "Você já se sentiu desconfortável com piadas sobre a sua ou outra nacionalidade?",
+      "Como a xenofobia impacta negativamente a sociedade?",
+      "Você acredita que a economia de um país influencia os níveis de xenofobia?",
+      "Você já procurou aprender sobre a cultura de imigrantes na sua região?",
+      "Qual das seguintes ações individuais você acredita que é eficaz para combater a xenofobia no dia a dia?",
+      "Você se considera bem-informado sobre as leis que protegem imigrantes?"
+    ];
+
+    const colors = ["#8B5CF6", "#FBBF24", "#10B981", "#EF4444"];
+
+    const questionsData = Object.entries(estatisticas).map(([key, respostas], i) => {
+      const data = Object.entries(respostas).map(([name, value], j) => ({
+        name,
+        value,
+        color: colors[j % colors.length],
+      }));
+
+      return {
+        id: i + 1,
+        question: perguntas[i],
+        data,
+      };
+    });
+
+    res.json(questionsData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Erro ao gerar estatísticas" });
   }
 });
 

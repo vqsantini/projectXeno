@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { Header } from "./components/Header";
+import { Header } from "../components/Header";
 
 export function FormularioPesquisa() {
   const perguntas = [
@@ -31,14 +31,14 @@ export function FormularioPesquisa() {
     { q1: "Sim", q2: "Não", q3: "Parcialmente" },
   ];
 
-  const [index, setIndex] = useState(0);
-  const [respostas, setRespostas] = useState<string[]>([]);
-  const [error, setError] = useState("");
+  const [index, setarIndex] = useState(0);
+  const [respostas, setarRespostas] = useState<string[]>([]);
+  const [error, setarErro] = useState("");
 
   const progress = ((index + 1) / perguntas.length) * 100;
 
   const handleChange = (valor: string) => {
-    setRespostas((prev) => {
+    setarRespostas((prev) => {
       const next = [...prev];
       if (next.length < perguntas.length) {
         next.length = perguntas.length;
@@ -49,24 +49,24 @@ export function FormularioPesquisa() {
       next[index] = valor;
       return next;
     });
-    setError("");
+    setarErro("");
   };
 
-  const avancar = () => {
+  const avanco = () => {
     if (!respostas[index]) {
-      setError("Por favor, selecione uma alternativa para continuar.");
+      setarErro("Por favor, selecione uma alternativa para continuar.");
       return;
     }
-    setIndex((prev) => prev + 1);
+    setarIndex((prev) => prev + 1);
   };
 
   const voltar = () => {
-    if (index > 0) setIndex((prev) => prev - 1);
+    if (index > 0) setarIndex((prev) => prev - 1);
   };
 
   const finalizar = async () => {
     if (!respostas[index]) {
-      setError("Por favor, selecione uma alternativa para continuar.");
+      setarErro("Por favor, selecione uma alternativa para continuar.");
       return;
     }
 
@@ -85,7 +85,7 @@ export function FormularioPesquisa() {
       });
     } catch (err) {
       console.log(err);
-      setError("Ocorreu um erro ao enviar. Tente novamente.");
+      setarErro("Ocorreu um erro ao enviar. Tente novamente.");
     }
   };
 
@@ -148,8 +148,8 @@ export function FormularioPesquisa() {
               </button>
 
               {index < perguntas.length - 1 ? (
-                <button onClick={avancar} className="btn-next">
-                  Avançar
+                <button onClick={avanco} className="btn-next">
+                  Próxima
                 </button>
               ) : (
                 <Link to="/">
@@ -160,10 +160,8 @@ export function FormularioPesquisa() {
               )}
             </div>
           </motion.div>
-
         </div>
       </main>
-
     </div>
   );
 }

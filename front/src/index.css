@@ -169,6 +169,7 @@ header nav .button-header::after {
     height: 2px;
     background-color: var(--accent-color);
     transition: width var(--transition-speed);
+    text-decoration: none;
 }
 
 header nav .button-header:hover, header nav .button-header:focus {
@@ -181,9 +182,11 @@ header nav .button-header:hover::after, header nav .button-header:focus::after {
 header nav .active {
     background-color: var(--accent-color);
     color: var(--bg-white);
+    text-decoration: none;
 }
 header nav .active:hover::after {
     width: 0;
+    text-decoration: none;
 }
 
 footer {
