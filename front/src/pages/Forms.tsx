@@ -71,7 +71,8 @@ export function FormularioPesquisa() {
     }
 
     try {
-      await axios.post("https://back-projectxeno.onrender.com/pesquisa", {
+      await axios.post("https://backend-projeto-xenofobia.onrender.com/pesquisa", {
+      // await axios.post("http://localhost:3000/pesquisa", {
         p1: respostas[0] ?? "",
         p2: respostas[1] ?? "",
         p3: respostas[2] ?? "",

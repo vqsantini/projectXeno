@@ -23,7 +23,8 @@ export const Statistics = () => {
 
   useEffect(() => {
     axios
-      .get<QuestionData[]>("https://back-projectxeno.onrender.com/pesquisa")
+      .get<QuestionData[]>("https://backend-projeto-xenofobia.onrender.com/pesquisa")
+      // .get<QuestionData[]>("http://localhost:3000/pesquisa")
       .then((res) => {
         const normalized = res.data.map((q, qi) => ({
           ...q,
